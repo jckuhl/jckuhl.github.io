@@ -2,7 +2,7 @@
 layout: post
 title:  "Novel Writing on Udemy"
 date:   2018-10-24 10:51:05 -0400
-categories: jekyll update
+categories: writing novel fiction
 ---
 
 # Lesson 1
