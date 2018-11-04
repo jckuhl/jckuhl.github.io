@@ -7,33 +7,17 @@ categories: code javascript webdev
 
 Before I begin - go vote on Tuesday.
 
-JavaScript is a language of weak and dynamic types, meaning that there is no strong typing.  Types are inferred by the interpreter and can change on the fly.  You can build an array mixed with anything you want.  You can pass whatever objects to functions as parameters as your heart desire.  And while this has some advantages, this also has some serious drawbacks.
+Ah, JavaScript.  A programming language full of silliness and trickery.  If I were to compare programming langauages to Norse Gods, it'd go like this.  C would be Odin, all wise, all knowing and the All Father.  Python would be Baldur, the God of joy.  C++ would be Thor, the God of storms.  Java would be Hel, lord of the Underworld.  And JavaScript . . . would be Loki.
 
-In my professional life, as a Software Development Engineer in Test (SDET), I use Java, specifically with Selenium Webdriver, and that means that I've become accustomed to static types.  If a function in Java takes a string, then you can't pass anything else in.
+The God of mischief.
 
-```java
-public String add(String a, String b) {
-    return a + b;
-}
-```
-
-If I were to call this function, `add(1,2)`, the compiler would get mad and fail.  The function explicitly takes strings, and nothing else.  In JavaScript however, I can do the same:
-
-```javascript
-function add(a, b) {
-    return a + b;
-}
-```
-
-If I do that, then `add(1,2)` and `add('cat', 'dog')`, are valid, and they'll return `3` and `'catdog'` respectively.  Or I could do `add(1, 'cat')` and get `'1cat'` back.  JavaScript doesn't care.
-
-This can lead to some very interesting behavior, and a common interview question.  Can the following statement ever be true?
+Here's a common interview question.  Can the following statement ever be true?
 
 ```javascript
 (a == 1 && a == 2 && a == 3)
 ```
 
-The answer is, yes.  Of course this question doesn't yet have anything to do with type coercion, but we'll get there.
+The answer is, yes.
 
 By overriding `valueOf()`, we can make this nonsensical statement true.  We can define `a` as the instance of some class, and override `valueOf()` such that it increments its value everytime it is called.  The way `==` works, is that it calls `valueOf()` when making comparisons, to see if the values are equal.  That's the definition of loose equality in JavaScript.  We want to see if the _values_ are equal, not the types.
 
