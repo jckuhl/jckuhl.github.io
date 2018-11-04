@@ -19,6 +19,8 @@ Here's a common interview question.  Can the following statement ever be true?
 
 The answer is, yes.
 
+Whenever `==` is used to compare values, the `valueOf()` method is implicitly called.
+
 By overriding `valueOf()`, we can make this nonsensical statement true.  We can define `a` as the instance of some class, and override `valueOf()` such that it increments its value everytime it is called.  The way `==` works, is that it calls `valueOf()` when making comparisons, to see if the values are equal.  That's the definition of loose equality in JavaScript.  We want to see if the _values_ are equal, not the types.
 
 If we do the following, we'll make that statement true.
