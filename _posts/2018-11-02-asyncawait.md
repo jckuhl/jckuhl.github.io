@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Async/Await and Promises"
-date:   2018-10-24 10:51:05 -0400
+date:   2018-11-02 10:51:05 -0400
 categories: code javascript webdev
 ---
 
@@ -24,7 +24,7 @@ getLocalPosition: ()=> {
            (error)=> reject(error)
         );
     } else {
-      reject(new GeoError(`Your browser doesn't support geolocation`));
+        reject(new GeoError(`Your browser doesn't support geolocation`));
     }
   });
 }
@@ -83,47 +83,54 @@ And don't limit yourself to network calls either when thinking asynchronously. 
 
 ```javascript
 async start() {
-  let gameLoop;
-  const pointsOnBoundary= p => p.x < this.bounds.width && p.y < this.bounds.height;
-  const random = (len)=> Math.floor(Math.random() * len);
-  let position= {
-    x:0, y:0
-  };
-  const filteredCoords = this.coords.filter(pointsOnBoundary);
-  let {x, y} = filteredCoords[random(filteredCoords.length)];
-  this.snake = new Snake(y, x, 16);
-  const startAnimation= (resolve)=> {
-    if(!this.snake || !this.snake.alive) {
-      cancelAnimationFrame(gameLoop);
-      resolve('Game Over');
-      return;
+    let gameLoop;
+    const pointsOnBoundary = p => p.x < this.bounds.width && p.y < this.bounds.height;
+    const random = (len) => Math.floor(Math.random() * len);
+    let position = {
+        x: 0,
+        y: 0
+    };
+    const filteredCoords = this.coords.filter(pointsOnBoundary);
+    let {
+        x,
+        y
+    } = filteredCoords[random(filteredCoords.length)];
+    this.snake = new Snake(y, x, 16);
+    const startAnimation = (resolve) => {
+        if (!this.snake || !this.snake.alive) {
+            cancelAnimationFrame(gameLoop);
+            resolve('Game Over');
+            return;
+        }
+        if (!this.pellet) {
+            let {
+                x,
+                y
+            } = filteredCoords[random(filteredCoords.length)];
+            this.pellet = new Pellet(x, y, 16);
+        }
+        position.x += this.snake.speed.x;
+        position.y += this.snake.speed.y;
+        this.snake.div.style.top = position.y + 'px';
+        this.snake.div.style.left = position.x + 'px';
+        this.snake.detectPellet(this.pellet);
+        this.snake.detectEdge(this.bounds.width, this.bounds.height);
+        if (this.pellet.touched) {
+            this.board.removeChild(this.pellet.div);
+            this.pellet = null;
+        }
+        this.scoreBoard.setScore(this.snake.score);
+        gameLoop = requestAnimationFrame(() => startAnimation(resolve));
     }
-    if(!this.pellet) {
-      let {x, y} = filteredCoords[random(filteredCoords.length)];
-      this.pellet = new Pellet(x, y, 16);
-    }
-    position.x += this.snake.speed.x;
-    position.y += this.snake.speed.y;
-    this.snake.div.style.top = position.y+'px';
-    this.snake.div.style.left = position.x+'px';
-    this.snake.detectPellet(this.pellet);
-    this.snake.detectEdge(this.bounds.width, this.bounds.height);
-    if(this.pellet.touched) {
-      this.board.removeChild(this.pellet.div);
-      this.pellet = null;
-    }
-    this.scoreBoard.setScore(this.snake.score);
-    gameLoop = requestAnimationFrame(() => startAnimation(resolve));
-  }
-  const endgame = await new Promise(startAnimation)                      
-                            .then(endgame => endgame);
-  const gameOverDiv = document.createElement('div');
-  gameOverDiv.id = 'game-over';
-  gameOverDiv.innerHTML = `
-    <p>${endgame}</p>
-    <p><small>Your score was ${this.scoreBoard.score}</small></p>
-    `;
-  this.board.appendChild(gameOverDiv);
+    const endgame = await new Promise(startAnimation)
+        .then(endgame => endgame);
+    const gameOverDiv = document.createElement('div');
+    gameOverDiv.id = 'game-over';
+    gameOverDiv.innerHTML = `
+        <p>${endgame}</p>
+        <p><small>Your score was ${this.scoreBoard.score}</small></p>
+        `;
+    this.board.appendChild(gameOverDiv);
 }
 ```
 Here's the source on Github, note this code may change from after I've written this post.  [https://github.com/jckuhl/snakejs/blob/master/scripts/board.js](https://github.com/jckuhl/snakejs/blob/master/scripts/board.js)

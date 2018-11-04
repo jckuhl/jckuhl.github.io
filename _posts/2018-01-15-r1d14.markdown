@@ -1,0 +1,30 @@
+---
+author: jckuhl
+comments: true
+date: 2018-01-15 03:57:07+00:00
+layout: post
+link: https://projectbreakpoint.wordpress.com/2018/01/14/r1d14/
+slug: r1d14
+title: R1D14
+wordpress_id: 53
+categories:
+- '#100DaysOfCode'
+- JavaScript
+---
+
+You know, given my last post this may seem redundant, but I do love me some method chaining.  Look at this baby:
+
+```javascript
+function squareDigits(num) {
+    //may the code be with you
+    return parseInt(num.toString().split("").map((digit) => {
+        return Math.pow(digit, 2);
+    }).join(""))
+}
+```
+
+Not exactly a useful function that you're going to find on your every day web app, but it's a good exercise to flex your JavaScript muscles.  As I said in my earlier post, method chaining produces nice and compact code.
+
+The code is kind of dumb.  It takes a number, like 9132 and returns a number where each digit is the square of each digit of the input number.  So 9132 returns 81194.  9 * 9 is 81, 1 * 1 is 1, 3 * 3 is 9, and 2 * 2 is 4, hence 81194.  Useless, but again, the idea is about practicing how to think through the problem.
+
+It's a solution to one of the kata at [CodeWars](https://www.codewars.com/).  Go check them out.  It's a nifty little code challenge site that gives you programming problems and tasks you to solve them.  I spent my hour of code today there doing a few of them.  They call their challenges "kata," if you were wondering why I used that word.  They offer challenges in multiple languages, including Python, JavaScript, C, C++, and a whole host of others, so go check them out!

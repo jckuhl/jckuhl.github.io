@@ -1,0 +1,50 @@
+---
+author: jckuhl
+comments: true
+date: 2018-01-14 01:29:24+00:00
+layout: post
+link: https://projectbreakpoint.wordpress.com/2018/01/14/r1d13/
+slug: r1d13
+title: R1D13
+wordpress_id: 18
+categories:
+- '#100DaysOfCode'
+- JavaScript
+- Python
+---
+
+On January 1st of this year I started the [100 Days of Code challenge](http://100daysofcode.com/).  Keeping track of the days is easy enough, I can just look at a calendar.  Keeping myself on track for the challenge itself however?  Not so much.
+
+I should have started a journal when I started the challenge.  I did not.  Oh well,  I'll use this post to get caught up and go from here.  I'll try to keep up with these blog posts a few times a week.
+
+Anyways, my name is Jonathan Kuhl and I'm trying to become a web developer.  I spent the last year learning most of the Holy Trinity (HTML, CSS and JavaScript) and I also have an interest in Python and Swift (I love me some Swift.)  Most of what I've done so far this challenge has been Javascript, with a bit of Python here and there.  I'm also taking college courses for SQL as I type this, so maybe there'll be a bit of that too.
+
+I started the New Year at work with a very slow day.  Absurdly slow.  I did more code challenges than I did the work I get paid for.  There's nothing wrong with that, my company doesn't care; if there's no work, there's no work, it's one of those places.  But I got quite a bit done, most of it in [JSFiddle](https://jsfiddle.net/).
+
+I tend to use JSFiddle for small JavaScript playthings.  I find the display is more suited for small projects, and I tend to use [CodePen](https://codepen.io/) for bigger projects.  My opinion; of course both sites can be used for either purposes.
+
+Alongside some code challenges, I made a color changer: [Color Changer](https://jsfiddle.net/jkuhl/7rL97agk/4/)
+
+And a number guessing game: [Guessing Game](https://jsfiddle.net/jkuhl/utj8x4dq/)
+
+The guessing game I made by going to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and finding a tutorial.  I saw the final project, skipped the tutorial, and just made it all in JSFiddle without peeking at the answer.
+
+That's how I started my year anyways.  I spent the next few days picking at a poker game I made in python and doing a few other code challenges as well.  I think my favorite thing to create though was my lightbox.  (Don't confuse this with lightbox.js, which is someone else's module!)
+
+[Lightbox Gist](https://gist.github.com/jckuhl/f8a56349d29308eb4af207a09787270a)
+
+It's a fairly simple script written in vanilla JavaScript and some CSS.  It goes through all the images with the class name "thumb" and allows a user to click on it.  This opens a modal with a larger version of the image, that can then be dismissed by clicking it.  I also added functionality to scroll through the images with the arrow keys on a keyboard.
+
+You can see it in action here:
+
+[Project Breakpoint: Year In Review](http://www.projectbreakpoint.com/yearinreview/yer.html)
+
+Note that Project Breakpoint is my professional website (or it will be when it's finished) hosted by Dreamhost.  I'm using Wordpress for a blog, for convenience.
+
+I also had a good time creating a linked list in Python.  It was my first time successfully creating this type of data structure.  I'm not sure where I'll ever _use_ a linked list, but that's hardly the point.  I wrote this on a handy website called [repl.it](https://repl.it/student) and it was a good exercise in getting classes to work together and thinking logically.
+
+[Linked List](https://repl.it/@jkuhl87/Linked-List)
+
+It's a simple linked list, with only four functions.  You can append a node to the end of the list, insert a node between two other nodes, search the nodes for a node with particular data, or simply print out all the node's data content.  I might go back and add more functions as I think of them, but for now, I'm happy with these.
+
+I did quite a bit the past thirteen days.  I don't think I'll go over everything here, but it's a good start for a good challenge.  I missed a few days, but that's life.  13 days down, 87 to go and maybe there'll be a career at the end of it.

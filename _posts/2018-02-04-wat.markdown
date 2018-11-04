@@ -1,0 +1,18 @@
+---
+author: jckuhl
+comments: true
+date: 2018-02-04 13:05:17+00:00
+layout: post
+link: https://projectbreakpoint.wordpress.com/2018/02/04/wat/
+slug: wat
+title: Wat
+wordpress_id: 101
+---
+
+To continue with yesterday's them of JavaScript being weird, what would the following line produce?
+
+```javascript    
+    Array(16).join("wat" - 1) + " Batman";
+```
+
+To find out and have a humorous taste on some of the other oddities of Ruby and JavaScript, check out this short talk:  [Wat](https://www.destroyallsoftware.com/talks/wat).
