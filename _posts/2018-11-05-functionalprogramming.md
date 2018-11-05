@@ -9,7 +9,7 @@ Today I watched a video on functional programming:
 
 [![Functional Programming in ES6](http://img.youtube.com/vi/FYXpOjwYzcs/0.jpg)](http://www.youtube.com/watch?v=FYXpOjwYzcs)
 
-https://www.youtube.com/watch?v=FYXpOjwYzcs
+[https://www.youtube.com/watch?v=FYXpOjwYzcs](https://www.youtube.com/watch?v=FYXpOjwYzcs)
 
 Speaker:  Jeremy Fairbanks
 
